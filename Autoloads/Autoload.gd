@@ -1,0 +1,7 @@
+extends Node
+
+var saveData:SaveData
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	saveData = SaveData.load_or_create()

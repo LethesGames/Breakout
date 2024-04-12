@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7j3chs7eodo4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbdm4"]
+bg_color = Color(0.792157, 0.403922, 0.00784314, 0.537255)
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbdm4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 10
+
+[node name="LivesLabel" type="Label" parent="Panel/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Lives: 3"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 10
+
+[node name="MaxScoreLabel" type="Label" parent="Panel/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Max Score: 0"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 10
+
+[node name="CurrentScoreLabel" type="Label" parent="Panel/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+text = "Score: 0"

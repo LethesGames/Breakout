@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dscvwsl6ffi5a"]
 
-[ext_resource type="Script" path="res://Scripts/Brick.gd" id="1_jouii"]
+[ext_resource type="Script" path="res://Scripts/brick.gd" id="1_jouii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3l3j"]
 size = Vector2(127, 127)

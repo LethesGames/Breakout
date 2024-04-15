@@ -1,6 +1,6 @@
 extends Area2D
 
-var scoreLabel
+
 var rightLimit
 var leftLimit
 var bottomLimit
@@ -12,10 +12,11 @@ var colorPalette:Array = ["0A9396", # ~ Dark cyan
 							"BB3E03", # ~ Rust
 							"AE2012"] # ~ Rufous
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("ColorRect").color = Color.html(colorPalette[randi_range(0, colorPalette.size() - 1)])
-	scoreLabel = get_parent().get_parent().get_node("Hud/Panel/HBoxContainer/MarginContainer3/CurrentScoreLabel")
+	get_node("ColorRect").color = Color.html(
+		colorPalette[randi_range(0, colorPalette.size() - 1)])
 	rightLimit = get_node("RightLimit").global_position
 	leftLimit = get_node("LeftLimit").global_position
 	bottomLimit = get_node("BottomLimit").global_position
@@ -30,9 +31,7 @@ func _process(delta):
 
 func _on_area_entered(area):
 	if area.name == "Ball":
-		var score = int(scoreLabel.text)
-		score = score + 1
-		scoreLabel.text = "Score: " + str(score)
+		get_tree().call_group("Game", "add_point")
 		if area.speed < 1000:
 			area.speed += 25
 		_rebound_on_brick(area)

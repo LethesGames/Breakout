@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://pvox80abkj12"]
 
-[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="1_bdtl7"]
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_bdtl7"]
 [ext_resource type="Theme" uid="uid://37kfrtwrye6n" path="res://Themes/new_theme.tres" id="2_vjp2y"]
 
 [node name="Control" type="Control"]

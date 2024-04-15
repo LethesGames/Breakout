@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://5m3rvj83ogrk"]
 
-[ext_resource type="Script" path="res://Scripts/Paddle.gd" id="1_nrvw5"]
-[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_wcp0w"]
+[ext_resource type="Script" path="res://Scripts/paddle.gd" id="1_nrvw5"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_wcp0w"]
 [ext_resource type="Texture2D" uid="uid://bvak3c7j76u7s" path="res://Sprites/paddle.png" id="2_035ww"]
-[ext_resource type="Script" path="res://Scripts/Ball.gd" id="3_b01ue"]
+[ext_resource type="Script" path="res://Scripts/ball.gd" id="3_b01ue"]
 [ext_resource type="Texture2D" uid="uid://f6f8bwlno5b8" path="res://Sprites/ball.png" id="4_vra3b"]
 [ext_resource type="PackedScene" uid="uid://dscvwsl6ffi5a" path="res://Scenes/brick.tscn" id="5_jhgnb"]
 [ext_resource type="AudioStream" uid="uid://btboukw4bi6gi" path="res://Audio/8-bit-game-2-186976.mp3" id="6_aoavu"]
@@ -23,7 +23,7 @@ radius = 5.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_erurm"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" groups=["Game"]]
 script = ExtResource("1_wcp0w")
 
 [node name="Paddle" type="Area2D" parent="."]

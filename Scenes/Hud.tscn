@@ -1,4 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7j3chs7eodo4"]
+[gd_scene load_steps=5 format=3 uid="uid://b7j3chs7eodo4"]
+
+[ext_resource type="Script" path="res://Scripts/lives_label.gd" id="1_cskhd"]
+[ext_resource type="Script" path="res://Scripts/current_score_label.gd" id="1_obnue"]
+[ext_resource type="Script" path="res://Scripts/max_score_label.gd" id="2_mr72p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbdm4"]
 bg_color = Color(0.792157, 0.403922, 0.00784314, 0.537255)
@@ -27,6 +31,7 @@ theme_override_constants/margin_right = 10
 [node name="LivesLabel" type="Label" parent="Panel/HBoxContainer/MarginContainer"]
 layout_mode = 2
 text = "Lives: 3"
+script = ExtResource("1_cskhd")
 
 [node name="MarginContainer2" type="MarginContainer" parent="Panel/HBoxContainer"]
 layout_mode = 2
@@ -35,6 +40,7 @@ theme_override_constants/margin_right = 10
 [node name="MaxScoreLabel" type="Label" parent="Panel/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 text = "Max Score: 0"
+script = ExtResource("2_mr72p")
 
 [node name="MarginContainer3" type="MarginContainer" parent="Panel/HBoxContainer"]
 layout_mode = 2
@@ -43,3 +49,4 @@ theme_override_constants/margin_right = 10
 [node name="CurrentScoreLabel" type="Label" parent="Panel/HBoxContainer/MarginContainer3"]
 layout_mode = 2
 text = "Score: 0"
+script = ExtResource("1_obnue")

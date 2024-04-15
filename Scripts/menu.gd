@@ -3,7 +3,7 @@ extends VBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var maxScore:int = Autoload.saveData.maxScore
+	var maxScore:int = Autoload.save_data.max_score
 	get_node("MaxScoreLabel").text = "Max Score: " + str(maxScore)
 	pass # Replace with function body.
 

@@ -3,11 +3,9 @@ extends Area2D
 var speed = 200
 var direction = Vector2(0, 1)
 var initialPosition = Vector2(581, 339)
-var initialPaddlePosition = Vector2(585, 604)
 var paddle
 var livesLabel
 var audioPlayer
-var maxScore:int
 var currentScore:int
 var brickNumber:int = 48
 
@@ -16,7 +14,6 @@ func _ready():
 	livesLabel = get_parent().get_node("Hud/Panel/HBoxContainer/MarginContainer/LivesLabel")
 	audioPlayer = get_parent().get_node("AudioStreamPlayer2D")
 	paddle = get_parent().get_node("Paddle")
-	maxScore = Autoload.saveData.maxScore
 	pass # Replace with function body.
 
 
@@ -26,6 +23,7 @@ func _process(delta):
 	if(currentScore == brickNumber):
 		get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
 	pass
+
 
 func _on_area_entered(area):
 	
@@ -39,21 +37,12 @@ func _on_area_entered(area):
 	elif area.name == "LeftWall":
 		direction = (direction + Vector2(2, 0)).normalized()
 	elif area.name == "TopWall":
-		#TODO: encoger paddle cuando tocamos el techo (solo la primera vez o algo continuo?)
 		direction = (direction + Vector2(0, 2)).normalized()
 	elif area.name == "BottomWall":
-		var livesRemaining = int(livesLabel.text) - 1
-		if livesRemaining <= 0:
-			livesLabel.text = "Lives: " + str(livesRemaining)
-			currentScore = int(get_parent().get_node("Hud/Panel/HBoxContainer/MarginContainer3/CurrentScoreLabel").text)
-			if currentScore > maxScore:
-				maxScore = currentScore
-				Autoload.saveData.maxScore = maxScore
-				Autoload.saveData.save()
-			get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
-		else:
-			livesLabel.text = "Lives: " + str(livesRemaining) 
-			speed = 200
-			position = initialPosition
-			paddle.position = initialPaddlePosition
-			direction = Vector2(0, 1) #TODO: provisional mientras no decidamos el comportamiento inicial de la bola	
+		get_tree().call_group("Game", "subtract_live")
+
+
+func reposition():
+	speed = 200
+	direction = Vector2(0, 1)
+	position = initialPosition

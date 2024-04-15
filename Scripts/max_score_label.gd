@@ -1,10 +1,9 @@
-extends Node2D
+extends Label
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var maxScore:String = str(Autoload.saveData.maxScore)
-	get_node("Hud/Panel/HBoxContainer/MarginContainer2/MaxScoreLabel").text = "Max Score: " + maxScore
+	text = "Max score: " + str(Autoload.save_data.max_score)
 	pass # Replace with function body.
 
 
